@@ -72,19 +72,17 @@ const ContactAddress = styled.address`
 
 const ContactLink = styled.a``;
 
-const ContactsMap = styled.div`
+const ContactsMapContainer = styled.div`
   position: relative;
   display: flex;
-  width: 649px;
-  height: 336px;
+  width: ${({width}) => width || '650px'};
+  height: ${({width}) => width || '350px'};
   margin-left: auto;
 `;
 
-const ContactsMapImage = styled.img`
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
+const ContactsMap = styled.div`
+  width: 100%;
+  height: 100%;
 `;
 
 export {
@@ -97,6 +95,6 @@ export {
   ContactValue,
   ContactAddress,
   ContactLink,
+  ContactsMapContainer,
   ContactsMap,
-  ContactsMapImage,
 };
