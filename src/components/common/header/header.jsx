@@ -1,12 +1,13 @@
 import logo from 'assets/img/logo.svg';
 import * as S from './header.styled';
+import {AppRoute} from '../../../constants';
 
 const Header = () => (
   <S.StyledHeader>
     <S.HeaderWrapper>
-      <S.Logo>
-        <S.Image src={logo} alt="Логотип Escape Room" width="134" height="50" />
-      </S.Logo>
+        <S.LogoLink to={AppRoute.Root}>
+          <S.Image src={logo} alt="Логотип Escape Room" width="134" height="50" />
+        </S.LogoLink>
 
       <S.Navigation>
         <S.Links>
@@ -29,7 +30,7 @@ const Header = () => (
           </S.LinkItem>
 
           <S.LinkItem>
-            <S.Link to="/contacts">Контакты</S.Link>
+            <S.Link to={AppRoute.Contacts}>Контакты</S.Link>
           </S.LinkItem>
         </S.Links>
       </S.Navigation>
