@@ -1,4 +1,4 @@
-const questTypes = ['sci-fi', 'detective', 'adventures', 'mystic', 'horror'];
+const ALL_QUESTS_FILTER_NAME = 'all'
 
 const AppRoute = {
   Root: '/',
@@ -19,17 +19,18 @@ const Difficulty = {
 };
 
 const QuestType = {
+  [ALL_QUESTS_FILTER_NAME]: 'Все квесты',
+  adventures: 'Приключения',
   horror: 'Ужасы',
   mystic: 'Мистика',
   detective: 'Детектив',
-  adventures: 'Приключения',
   'sci-fi': 'Sci-fi',
 };
 
 export {
-  questTypes,
   AppRoute,
   ApiRoute,
   Difficulty,
   QuestType,
+  ALL_QUESTS_FILTER_NAME,
 };

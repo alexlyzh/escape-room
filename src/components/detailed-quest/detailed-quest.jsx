@@ -8,7 +8,7 @@ import { BookingModal } from './components/components';
 import {NotFound} from '../common/not-found-page/not-found';
 import {useParams} from 'react-router-dom';
 import {useSelector} from 'react-redux';
-import {getQuests} from '../../store/data-reducer/selectors';
+import {getQuests} from '../../store/reducer/selectors';
 import {Difficulty, QuestType} from '../../constants';
 
 const DetailedQuest = () => {
@@ -23,15 +23,14 @@ const DetailedQuest = () => {
     return <NotFound/>;
   }
 
-  console.log(quest);
-
   const {title, coverImg, level, peopleCount, type, duration, description} = quest;
   const [minPeople, maxPeople] = peopleCount;
-  console.log(coverImg);
 
   const onBookingBtnClick = () => {
     setIsBookingModalOpened(true);
   };
+
+  const closeBookingModal = () => setIsBookingModalOpened(false);
 
   return (
     <MainLayout>
@@ -41,7 +40,6 @@ const DetailedQuest = () => {
           alt={`Квест ${title}`}
           width="1366"
           height="768"
-          data-id="cover-image"
         />
         <S.PageContentWrapper>
           <S.PageHeading>
@@ -75,7 +73,7 @@ const DetailedQuest = () => {
           </S.PageDescription>
         </S.PageContentWrapper>
 
-        {isBookingModalOpened && <BookingModal />}
+        {isBookingModalOpened && <BookingModal onBookingModalClose={closeBookingModal} />}
       </S.Main>
     </MainLayout>
   );

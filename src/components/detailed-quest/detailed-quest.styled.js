@@ -6,6 +6,11 @@ const Main = styled.main`
   margin-top: 149px;
   margin-bottom: 149px;
   margin-left: 43.92vw;
+
+  @media (max-width: 1200px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
 const PageImage = styled.img`
@@ -28,6 +33,7 @@ const PageHeading = styled.div`
   display: flex;
   flex-direction: column-reverse;
   margin-bottom: 29px;
+  width: 700px;
 `;
 
 const PageTitle = styled.h1`

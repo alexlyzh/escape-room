@@ -1,7 +1,8 @@
 import {createAction} from '@reduxjs/toolkit';
 
 const ActionType = {
-  LoadQuests: 'DATA / LoadQuests',
+  LoadQuests: 'LoadQuests',
+  ChangeQuestTypeFilter: 'ChangeQuestTypeFilter',
 }
 
 const ActionCreator = {
@@ -10,6 +11,12 @@ const ActionCreator = {
     (quests) => ({
     payload: quests,
   })),
+
+  changeQuestTypeFilter: createAction(
+    ActionType.ChangeQuestTypeFilter,
+    (filter) => ({
+      payload: filter,
+    })),
 };
 
 export {ActionType, ActionCreator};

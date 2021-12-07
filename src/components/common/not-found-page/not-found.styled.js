@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const NotFoundLayout = styled.div`
+const Layout = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,8 +8,8 @@ const NotFoundLayout = styled.div`
   height: 50vh;
 `;
 
-const NotFoundMessage = styled.p`
+const Message = styled.p`
   font-size: 2rem;
 `;
 
-export {NotFoundLayout, NotFoundMessage};
+export {Layout, Message};

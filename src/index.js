@@ -3,14 +3,14 @@ import { render } from 'react-dom';
 import App from 'components/app/app';
 import {createAPI} from './api';
 import {configureStore} from '@reduxjs/toolkit';
-import {dataReducer} from './store/data-reducer/data-reducer';
+import {reducer} from './store/reducer/reducer';
 import {ApiActions} from './store/api-actions';
 import {Provider} from 'react-redux';
 
 const api = createAPI();
 
 const store = configureStore({
-  reducer: dataReducer,
+  reducer: reducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       thunk: {

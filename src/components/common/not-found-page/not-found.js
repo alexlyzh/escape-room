@@ -1,16 +1,16 @@
 import {Link} from '../header/header.styled';
 import {AppRoute} from '../../../constants';
-import {NotFoundLayout, NotFoundMessage} from './not-found.styled';
+import * as S from './not-found.styled';
 
 const NotFound = () => (
-  <NotFoundLayout>
-    <NotFoundMessage>
+  <S.Layout>
+    <S.Message>
       404 - Страница не найдена
-    </NotFoundMessage>
+    </S.Message>
     <Link to={AppRoute.Root}>
       Вернуться на главную
     </Link>
-  </NotFoundLayout>
+  </S.Layout>
 )
 
 export {NotFound};

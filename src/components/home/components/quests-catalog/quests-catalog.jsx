@@ -7,59 +7,51 @@ import { ReactComponent as IconScifi } from 'assets/img/icon-scifi.svg';
 import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import * as S from './quests-catalog.styled';
-import {useSelector} from 'react-redux';
-import {getQuests} from '../../../../store/data-reducer/selectors';
-import {AppRoute, Difficulty} from '../../../../constants';
+import {useDispatch, useSelector} from 'react-redux';
+import {getFilteredQuests, getQuestTypeFilter} from '../../../../store/reducer/selectors';
+import {AppRoute, Difficulty, QuestType} from '../../../../constants';
 import {generatePath} from 'react-router-dom';
+import {ActionCreator} from '../../../../store/actions';
+
+const renderIconByType = (type) => {
+  switch (type) {
+    case QuestType.all:
+      return <IconAllQuests/>;
+    case QuestType.adventures:
+      return <IconAdventures/>;
+    case QuestType.horror:
+      return <IconHorrors/>;
+    case QuestType.mystic:
+      return <IconMystic/>;
+    case QuestType.detective:
+      return <IconDetective/>;
+    case QuestType['sci-fi']:
+      return <IconScifi/>;
+    default:
+      return null;
+  }
+};
 
 const QuestsCatalog = () => {
-  const quests = useSelector(getQuests);
-  console.log(quests);
+  const dispatch = useDispatch();
+  const quests = useSelector(getFilteredQuests);
+  const questTypeFilter = useSelector(getQuestTypeFilter);
+  const questTypes = Object.keys(QuestType);
 
   return (
     <>
       <S.Tabs>
-        <S.TabItem>
-          <S.TabBtn isActive>
-            <IconAllQuests />
-            <S.TabTitle>Все квесты</S.TabTitle>
-          </S.TabBtn>
-        </S.TabItem>
-
-        <S.TabItem>
-          <S.TabBtn>
-            <IconAdventures />
-            <S.TabTitle>Приключения</S.TabTitle>
-          </S.TabBtn>
-        </S.TabItem>
-
-        <S.TabItem>
-          <S.TabBtn>
-            <IconHorrors />
-            <S.TabTitle>Ужасы</S.TabTitle>
-          </S.TabBtn>
-        </S.TabItem>
-
-        <S.TabItem>
-          <S.TabBtn>
-            <IconMystic />
-            <S.TabTitle>Мистика</S.TabTitle>
-          </S.TabBtn>
-        </S.TabItem>
-
-        <S.TabItem>
-          <S.TabBtn>
-            <IconDetective />
-            <S.TabTitle>Детектив</S.TabTitle>
-          </S.TabBtn>
-        </S.TabItem>
-
-        <S.TabItem>
-          <S.TabBtn>
-            <IconScifi />
-            <S.TabTitle>Sci-fi</S.TabTitle>
-          </S.TabBtn>
-        </S.TabItem>
+        {questTypes.map((type) => (
+            <S.TabItem key={type}>
+              <S.TabBtn
+                isActive={type === questTypeFilter}
+                onClick={() => dispatch(ActionCreator.changeQuestTypeFilter(type))}
+              >
+                { renderIconByType(QuestType[type]) }
+                <S.TabTitle>{QuestType[type]}</S.TabTitle>
+              </S.TabBtn>
+            </S.TabItem>
+          ))}
       </S.Tabs>
 
       <S.QuestsList>

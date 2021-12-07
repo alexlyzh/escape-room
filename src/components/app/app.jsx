@@ -10,6 +10,7 @@ import Home from 'components/home/home';
 import { appTheme } from './common';
 import * as S from './app.styled';
 import {AppRoute} from '../../constants';
+import {NotFound} from '../common/not-found-page/not-found';
 
 const App = () => (
   <ThemeProvider theme={appTheme}>
@@ -22,8 +23,11 @@ const App = () => (
         <Route exact path={AppRoute.Contacts}>
           <Contacts />
         </Route>
-        <Route path={AppRoute.Root}>
+        <Route exact path={AppRoute.Root}>
           <Home />
+        </Route>
+        <Route>
+          <NotFound/>
         </Route>
       </Switch>
     </Router>
