@@ -5,7 +5,7 @@ import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import * as S from './detailed-quest.styled';
 import { BookingModal } from './components/components';
-import {NotFound} from '../common/not-found-page/not-found';
+import {NotFound} from '../common/not-found/not-found';
 import {useParams} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {getQuests} from '../../store/reducer/selectors';

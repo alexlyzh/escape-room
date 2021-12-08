@@ -11,6 +11,19 @@ const ApiActions = {
         throw e;
       }
     },
+
+  PostOrder: (data, setIsSubmitting, closeForm) =>
+    async (_dispatch, _getState, api) => {
+      try {
+        setIsSubmitting(true);
+        await api.post(ApiRoute.Orders, data);
+        closeForm();
+      } catch (e) {
+        throw e;
+      } finally {
+        setIsSubmitting(false);
+      }
+    },
 };
 
 export {ApiActions};

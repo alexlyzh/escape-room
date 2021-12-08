@@ -5,7 +5,6 @@ import {ALL_QUESTS_FILTER_NAME} from '../../constants';
 const initialState = {
   quests: [],
   isDataLoaded: false,
-  isSubmitting: false,
   questTypeFilter: ALL_QUESTS_FILTER_NAME,
 };
 

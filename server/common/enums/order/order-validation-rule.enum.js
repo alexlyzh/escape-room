@@ -1,5 +1,5 @@
 const OrderValidationRule = {
-  PHONE_MAX_LENGTH: 10,
+  PHONE_MAX_LENGTH: 11,
 };
 
 module.exports = {
