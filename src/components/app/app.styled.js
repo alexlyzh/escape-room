@@ -158,7 +158,7 @@ const GlobalStyle = createGlobalStyle`
   /* ios button \ inputs reset */
   select,
   textarea,
-  input:matches([type='email'], [type='number'], [type='password'], [type='search'], [type='tel'], [type='text'], [type='url']) {
+  input:is([type='email'], [type='number'], [type='password'], [type='search'], [type='tel'], [type='text'], [type='url']) {
     appearance: none;
   }
 

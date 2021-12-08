@@ -127,7 +127,7 @@ const BookingSubmit = styled(Button)`
   font-size: ${({ theme }) => theme.font.semibase};
   line-height: 16px;
   letter-spacing: 0.03em;
-  background-color: ${({ theme }) => theme.color.pinkSwan};
+  background-color: ${({ theme }) => theme.color.carrotOrange};
 
   &:focus,
   &:hover {

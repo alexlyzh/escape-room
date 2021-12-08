@@ -27,7 +27,7 @@ const App = () => (
           <Home />
         </Route>
         <Route>
-          <NotFound/>
+          <NotFound />
         </Route>
       </Switch>
     </Router>

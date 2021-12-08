@@ -8,10 +8,11 @@ import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import * as S from './quests-catalog.styled';
 import {useDispatch, useSelector} from 'react-redux';
-import {getFilteredQuests, getQuestTypeFilter} from '../../../../store/reducer/selectors';
+import {getFilteredQuests, selectIsDataLoaded, selectQuestTypeFilter} from '../../../../store/reducer/selectors';
 import {AppRoute, Difficulty, QuestType} from '../../../../constants';
 import {generatePath} from 'react-router-dom';
 import {ActionCreator} from '../../../../store/actions';
+import Spinner from '../../../common/spinner/spinner';
 
 const renderIconByType = (type) => {
   switch (type) {
@@ -35,7 +36,8 @@ const renderIconByType = (type) => {
 const QuestsCatalog = () => {
   const dispatch = useDispatch();
   const quests = useSelector(getFilteredQuests);
-  const questTypeFilter = useSelector(getQuestTypeFilter);
+  const questTypeFilter = useSelector(selectQuestTypeFilter);
+  const isDataLoaded = useSelector(selectIsDataLoaded);
   const questTypes = Object.keys(QuestType);
 
   return (
@@ -55,7 +57,8 @@ const QuestsCatalog = () => {
       </S.Tabs>
 
       <S.QuestsList>
-        {quests.map((quest) => {
+        {!isDataLoaded ? <Spinner homePage /> : null}
+        {isDataLoaded && quests.map((quest) => {
           const {id, title, previewImg, level, peopleCount} = quest;
           const [minPeople, maxPeople] = peopleCount;
           return (
