@@ -9,7 +9,7 @@ import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import * as S from './quests-catalog.styled';
 import {useDispatch, useSelector} from 'react-redux';
 import {getFilteredQuests, selectIsDataLoaded, selectQuestTypeFilter} from '../../../../store/reducer/selectors';
-import {AppRoute, Difficulty, QuestType} from '../../../../constants';
+import {AppRoute, difficulty, QuestType} from '../../../../constants';
 import {generatePath} from 'react-router-dom';
 import {ActionCreator} from '../../../../store/actions';
 import Spinner from '../../../common/spinner/spinner';
@@ -82,7 +82,7 @@ const QuestsCatalog = () => {
                       </S.QuestFeatureItem>
                       <S.QuestFeatureItem>
                         <IconPuzzle />
-                        {Difficulty[level]}
+                        {difficulty[level]}
                       </S.QuestFeatureItem>
                     </S.QuestFeatures>
                   </S.QuestContent>

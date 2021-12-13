@@ -12,7 +12,7 @@ const ApiRoute = {
   Orders: '/orders',
 };
 
-const Difficulty = {
+const difficulty = {
   hard: 'сложный',
   medium: 'средний',
   easy: 'простой'
@@ -30,7 +30,7 @@ const QuestType = {
 export {
   AppRoute,
   ApiRoute,
-  Difficulty,
+  difficulty,
   QuestType,
   ALL_QUESTS_FILTER_NAME,
 };

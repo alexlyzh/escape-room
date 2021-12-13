@@ -1,23 +1,23 @@
 import {useState} from 'react';
 
 export const useFormState = (initialState) => {
-  const [order, setOrder] = useState(initialState);
+  const [state, setState] = useState(initialState);
 
   const onInputChange = ({target}) => {
     const {name, value} = target;
-    setOrder({
-      ...order,
+    setState({
+      ...state,
       [name]: value,
     });
   };
 
   const onCheckboxChange = ({target}) => {
     const {name, checked} = target;
-    setOrder({
-      ...order,
+    setState({
+      ...state,
       [name]: checked,
     });
   };
 
-  return [order, onInputChange, onCheckboxChange];
+  return [state, onInputChange, onCheckboxChange];
 };

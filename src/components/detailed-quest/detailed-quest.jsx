@@ -9,7 +9,7 @@ import Spinner from '../common/spinner/spinner';
 import {useParams} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {selectIsDataLoaded, selectQuests} from '../../store/reducer/selectors';
-import {Difficulty, QuestType} from '../../constants';
+import {difficulty, QuestType} from '../../constants';
 
 const DetailedQuest = () => {
   const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
@@ -61,7 +61,7 @@ const DetailedQuest = () => {
               </S.FeaturesItem>
               <S.FeaturesItem>
                 <IconPuzzle width="24" height="24" />
-                <S.FeatureTitle>{Difficulty[level]}</S.FeatureTitle>
+                <S.FeatureTitle>{difficulty[level]}</S.FeatureTitle>
               </S.FeaturesItem>
             </S.Features>
 
